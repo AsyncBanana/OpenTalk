@@ -1,0 +1,17 @@
+{
+	"name": "testing-proxy",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "node run.js"
+	},
+	"keywords": [],
+	"author": "AsyncBanana",
+	"license": "MIT",
+	"dependencies": {
+		"execa": "^5.1.1",
+		"http-proxy": "^1.18.1"
+	},
+	"type": "module"
+}

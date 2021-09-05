@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "name": "@opentalk/api",
+  "version": "1.0.0",
+  "description": "A template for kick starting a Cloudflare Workers project",
+  "source": "src/index.ts",
+  "main": "./dist/worker.js",
+  "exports": "./dist/worker.js",
+  "scripts": {
+    "build": "node scripts/esbuild.js"
+  },
+  "author": "AsyncBanana <jacobedwardjackson@outlook.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^2.2.2",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "esbuild": "^0.12.24",
+    "esbuild-plugin-import-glob": "^0.1.1",
+    "eslint": "^7.32.0",
+    "prettier": "^1.19.1"
+  },
+  "type": "module",
+  "dependencies": {
+    "faunadb": "^4.3.0",
+    "itty-router": "^2.4.2",
+    "jose-browser-runtime": "^3.14.3"
+  }
+}

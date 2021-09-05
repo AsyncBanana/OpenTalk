@@ -1,0 +1,11 @@
+{
+	"version": 3,
+	"sources": [
+		"../src/index.ts"
+	],
+	"sourcesContent": [
+		"import axios from \"axios\";\ninterface Options {\n\tappId: string;\n\tpageId: string;\n\tpageUrl: string;\n\tapiHost: string;\n}\ninterface Comment {\n\tAuthor: string;\n\tTime: Date;\n\tReplied?: string;\n\tText: string;\n}\n/**\n * The official client for the OpenTalk commenting API\n */\nexport default class OpenTalkClient {\n\tconstructor(Options: Options) {\n\t\tthis.appId = Options.appId;\n\t\tthis.pageId = Options.pageId;\n\t\tthis.pageUrl = Options.pageUrl;\n\t\tthis.apiHost = Options.apiHost || \"https://opentalk.dev/api\";\n\t}\n\t/**\n\t * Get a list of all page comments based on class config\n\t */\n\tasync getPageComments() {\n\t\tconst res = await axios.get(`${this.apiHost}/comments/${this.pageUrl}`, {\n\t\t\tparams: {\n\t\t\t\tappId: this.appId,\n\t\t\t},\n\t\t});\n\t\treturn res.data.map((item: Comment) => {\n\t\t\titem.Time = new Date(item.Time);\n\t\t\treturn item;\n\t\t});\n\t}\n\tasync submitComment(author: string, text: string, replied: string) {\n\t\tconst res = await axios.post(\n\t\t\t`${this.apiHost}/comments/${this.pageUrl}`,\n\t\t\t{\n\t\t\t\tAuthor: author,\n\t\t\t\tText: text,\n\t\t\t\tReplied: replied,\n\t\t\t},\n\t\t\t{\n\t\t\t\tparams: {\n\t\t\t\t\tappId: this.appId,\n\t\t\t\t},\n\t\t\t}\n\t\t);\n\t}\n\tappId: string;\n\tpageId: string;\n\tpageUrl: string;\n\tapiHost: string;\n}\n"
+	],
+	"mappings": "AAAA,qBAgBA,sBAAoC,CACnC,YAAY,EAAkB,CAC7B,KAAK,MAAQ,EAAQ,MACrB,KAAK,OAAS,EAAQ,OACtB,KAAK,QAAU,EAAQ,QACvB,KAAK,QAAU,EAAQ,SAAW,gCAK7B,kBAAkB,CAMvB,MAAO,AALK,MAAM,GAAM,IAAI,GAAG,KAAK,oBAAoB,KAAK,UAAW,CACvE,OAAQ,CACP,MAAO,KAAK,UAGH,KAAK,IAAI,AAAC,GACpB,GAAK,KAAO,GAAI,MAAK,EAAK,MACnB,SAGH,eAAc,EAAgB,EAAc,EAAiB,CAClE,KAAM,GAAM,KAAM,GAAM,KACvB,GAAG,KAAK,oBAAoB,KAAK,UACjC,CACC,OAAQ,EACR,KAAM,EACN,QAAS,GAEV,CACC,OAAQ,CACP,MAAO,KAAK,SAKhB,MACA,OACA,QACA",
+	"names": []
+}
