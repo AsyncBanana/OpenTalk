@@ -10,7 +10,8 @@
     "types": ["@cloudflare/workers-types"],
     "moduleResolution": "node",
     "paths": {
-      "$modules/*": ["./src/modules/*"]
+      "$modules/*": ["./src/modules/*"],
+      "$schemas/*": ["./src/modules/schemas/*"]
     }
   },
   "exclude": ["dist"]

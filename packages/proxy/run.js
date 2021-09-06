@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 execa("wrangler", ["dev"], {
 	cwd: __dirname + "/../api",
-}).stderr.pipe(process.stdout);
+}).stdout.pipe(process.stdout);
 execa("pnpm", ["dev"], {
 	cwd: __dirname + "/../core",
 }).stdout.pipe(process.stdout);

@@ -24,6 +24,7 @@
   "dependencies": {
     "faunadb": "^4.3.0",
     "itty-router": "^2.4.2",
-    "jose-browser-runtime": "^3.14.3"
+    "jose-browser-runtime": "^3.14.3",
+    "jtd": "^0.1.1"
   }
 }
